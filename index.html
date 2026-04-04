@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empire Hair Saloon</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Button hover animation */
+    .btn {
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center p-5 border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-yellow-500">Empire</h1>
+  <div class="space-x-6 hidden md:block">
+    <a href="#home" class="hover:text-yellow-500">Home</a>
+    <a href="#services" class="hover:text-yellow-500">Services</a>
+    <a href="#gallery" class="hover:text-yellow-500">Gallery</a>
+    <a href="#contact" class="hover:text-yellow-500">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="text-center py-20 px-5" data-aos="fade-up">
+  <h2 class="text-4xl md:text-6xl font-bold mb-4">Empire Hair Saloon</h2>
+  <p class="text-gray-400 mb-6">Style That Defines You</p>
+  <a href="#contact" class="btn bg-yellow-500 text-black px-6 py-3 rounded-xl font-semibold hover:bg-yellow-400">
+    Book Now
+  </a>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-16 px-5">
+  <h2 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">Our Services</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 text-center">
+    
+    <div class="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition" data-aos="zoom-in">
+      <h3 class="text-xl font-semibold mb-2">Haircut</h3>
+      <p class="text-gray-400">Trendy and classic styles tailored to you.</p>
+    </div>
+
+    <div class="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="100">
+      <h3 class="text-xl font-semibold mb-2">Beard Styling</h3>
+      <p class="text-gray-400">Sharp and clean beard shaping.</p>
+    </div>
+
+    <div class="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="200">
+      <h3 class="text-xl font-semibold mb-2">Facial</h3>
+      <p class="text-gray-400">Skin care and grooming services.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-16 px-5 bg-gray-950">
+  <h2 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">Gallery</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <img src="https://source.unsplash.com/300x300/?haircut" class="rounded-xl hover:scale-110 transition" data-aos="fade-up">
+    <img src="https://source.unsplash.com/300x300/?barber" class="rounded-xl hover:scale-110 transition" data-aos="fade-up" data-aos-delay="100">
+    <img src="https://source.unsplash.com/300x300/?beard" class="rounded-xl hover:scale-110 transition" data-aos="fade-up" data-aos-delay="200">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="py-16 px-5 text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6">About Us</h2>
+  <p class="max-w-2xl mx-auto text-gray-400">
+    Empire Hair Saloon offers premium grooming services with skilled professionals 
+    focused on style, comfort, and customer satisfaction.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-16 px-5 bg-gray-950 text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+
+  <p class="mb-4 text-gray-400">Call or WhatsApp us to book your appointment</p>
+
+  <div class="space-y-4">
+    <a href="tel:+911234567890" class="btn block bg-yellow-500 text-black py-3 rounded-xl font-semibold">
+      Call Now
+    </a>
+
+    <a href="https://wa.me/911234567890" target="_blank" class="btn block bg-green-500 py-3 rounded-xl font-semibold">
+      WhatsApp
+    </a>
+  </div>
+
+  <!-- MAP -->
+  <div class="mt-10" data-aos="zoom-in">
+    <iframe 
+      src="https://www.google.com/maps?q=Palanpur&output=embed"
+      class="w-full h-64 rounded-xl border-0">
+    </iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-6 border-t border-gray-800 text-gray-500">
+  © 2026 Empire Hair Saloon. All rights reserved.
+</footer>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+</body>
+</html>
