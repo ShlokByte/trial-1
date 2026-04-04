@@ -8,26 +8,34 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- AOS Animation Library -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
-    /* Button hover animation */
-    .btn {
-      transition: all 0.3s ease;
-    }
+    .btn { transition: all 0.3s ease; }
+    .btn:hover { transform: scale(1.05); }
 
-    .btn:hover {
-      transform: scale(1.05);
+    #cursor {
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
     }
   </style>
 </head>
 
 <body class="bg-black text-white font-sans">
+
+<!-- LOADER -->
+<div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50">
+  <div class="text-center">
+    <h1 class="text-yellow-500 text-3xl font-bold animate-pulse">Empire</h1>
+    <p class="text-gray-400 mt-2">Loading...</p>
+  </div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor" class="fixed top-0 left-0 w-5 h-5 bg-yellow-500 rounded-full pointer-events-none z-50"></div>
 
 <!-- NAVBAR -->
 <nav class="flex justify-between items-center p-5 border-b border-gray-800">
@@ -66,8 +74,8 @@
     </div>
 
     <div class="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="200">
-      <h3 class="text-xl font-semibold mb-2">Facial</h3>
-      <p class="text-gray-400">Skin care and grooming services.</p>
+      <h3 class="text-xl font-semibold mb-2">Hair Treatments</h3>
+      <p class="text-gray-400">Keratin, spa, facial & more.</p>
     </div>
 
   </div>
@@ -78,9 +86,9 @@
   <h2 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">Gallery</h2>
 
   <div class="grid md:grid-cols-3 gap-6">
-    <img src="https://source.unsplash.com/300x300/?haircut" class="rounded-xl hover:scale-110 transition" data-aos="fade-up">
-    <img src="https://source.unsplash.com/300x300/?barber" class="rounded-xl hover:scale-110 transition" data-aos="fade-up" data-aos-delay="100">
-    <img src="https://source.unsplash.com/300x300/?beard" class="rounded-xl hover:scale-110 transition" data-aos="fade-up" data-aos-delay="200">
+    <img src="beard1.jpg" class="rounded-xl hover:scale-110 transition" data-aos="fade-up">
+    <img src="haircut1.jpg" class="rounded-xl hover:scale-110 transition" data-aos="fade-up" data-aos-delay="100">
+    <img src="haircut2.jpg" class="rounded-xl hover:scale-110 transition" data-aos="fade-up" data-aos-delay="200">
   </div>
 </section>
 
@@ -88,8 +96,8 @@
 <section class="py-16 px-5 text-center" data-aos="fade-up">
   <h2 class="text-3xl font-bold mb-6">About Us</h2>
   <p class="max-w-2xl mx-auto text-gray-400">
-    Empire Hair Saloon offers premium grooming services with skilled professionals 
-    focused on style, comfort, and customer satisfaction.
+    Empire Hair Saloon offers premium grooming services including haircuts, beard styling,
+    hair colouring, keratin treatments, facials, and more — all focused on quality and style.
   </p>
 </section>
 
@@ -97,22 +105,34 @@
 <section id="contact" class="py-16 px-5 bg-gray-950 text-center" data-aos="fade-up">
   <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
 
-  <p class="mb-4 text-gray-400">Call or WhatsApp us to book your appointment</p>
+  <p class="mb-4 text-gray-400">
+    Visit us or book your appointment via call/WhatsApp
+  </p>
 
   <div class="space-y-4">
-    <a href="tel:+911234567890" class="btn block bg-yellow-500 text-black py-3 rounded-xl font-semibold">
+    <a href="tel:+916355160393" class="btn block bg-yellow-500 text-black py-3 rounded-xl font-semibold">
       Call Now
     </a>
 
-    <a href="https://wa.me/911234567890" target="_blank" class="btn block bg-green-500 py-3 rounded-xl font-semibold">
+    <a href="https://wa.me/916355160393" target="_blank" class="btn block bg-green-500 py-3 rounded-xl font-semibold">
       WhatsApp
     </a>
   </div>
 
+  <!-- ADDRESS -->
+  <div class="mt-8 text-gray-400">
+    <p class="font-semibold text-white mb-2">Address:</p>
+    <p>
+      Om Plaza, Sai Villa 6 Society Road,<br>
+      Near D-Mart, Opp. Riddhi Siddhi Party Plot,<br>
+      Esbipura, Palanpur, Gujarat - 385001
+    </p>
+  </div>
+
   <!-- MAP -->
-  <div class="mt-10" data-aos="zoom-in">
+  <div class="mt-10">
     <iframe 
-      src="https://www.google.com/maps?q=Palanpur&output=embed"
+      src="https://www.google.com/maps?q=Om+Plaza+Sai+Villa+6+Society+Road+Palanpur&output=embed"
       class="w-full h-64 rounded-xl border-0">
     </iframe>
   </div>
@@ -123,12 +143,36 @@
   © 2026 Empire Hair Saloon. All rights reserved.
 </footer>
 
-<!-- AOS Script -->
+<!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true
+  AOS.init({ duration: 1000, once: true });
+
+  // LOADER
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    loader.style.opacity = "0";
+    loader.style.transition = "0.5s";
+    setTimeout(() => loader.style.display = "none", 500);
+  });
+
+  // CURSOR
+  const cursor = document.getElementById("cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.top = e.clientY + "px";
+    cursor.style.left = e.clientX + "px";
+  });
+
+  document.querySelectorAll("a, button").forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(1.8)";
+    });
+
+    el.addEventListener("mouseleave", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(1)";
+    });
   });
 </script>
 
